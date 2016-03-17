@@ -25,7 +25,7 @@ function getPlayerMove(move) {
     // Write an expression that operates on a variable called `move`
     // If a `move` has a value, your expression should evaluate to that value.
     // However, if `move` is not specified / is null, your expression should equal `getInput()`.
-    var plamov = (move && null);
+    var plamov = (move && !null);
     if (plamov === null) {
         plamov = getInput();
     }
@@ -36,8 +36,8 @@ function getComputerMove(move) {
     // Write an expression that operates on a variable called `move`
     // If a `move` has a value, your expression should evaluate to that value.
     // However, if `move` is not specified / is null, your expression should equal `randomPlay()`.
-    var commov = (move && null);
-    if (Ccommov === null) {
+    var commov = (move && !null);
+    if (commov === null) {
         commov = randomPlay();
     }
     return commov;
