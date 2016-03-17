@@ -25,22 +25,22 @@ function getPlayerMove(move) {
     // Write an expression that operates on a variable called `move`
     // If a `move` has a value, your expression should evaluate to that value.
     // However, if `move` is not specified / is null, your expression should equal `getInput()`.
-    var PlayerMove = (move && null);
-    if (PlayerMove === null) {
-        PlayerMove = getInput();
+    var plamov = (move && null);
+    if (plamov === null) {
+        plamov = getInput();
     }
-    return PlayerMove;
+    return plamov;
 }
 
 function getComputerMove(move) {
     // Write an expression that operates on a variable called `move`
     // If a `move` has a value, your expression should evaluate to that value.
     // However, if `move` is not specified / is null, your expression should equal `randomPlay()`.
-    var ComputerMove = (move && null);
-    if (ComputerMove === null) {
-        ComputerMove = randomPlay();
+    var commov = (move && null);
+    if (Ccommov === null) {
+        commov = randomPlay();
     }
-    return ComputerMove;
+    return commov;
 }
 
 function getWinner(playerMove,computerMove) {
@@ -49,6 +49,55 @@ function getWinner(playerMove,computerMove) {
     // Assume that the only values playerMove and computerMove can have are 'rock', 'paper', and 'scissors'.
     // The rules of the game are that 'rock' beats 'scissors', 'scissors' beats 'paper', and 'paper' beats 'rock'.
     /* YOUR CODE HERE */
+        switch (plamov) {
+        case 'rock':
+            switch (commov) {
+                case 'rock':
+                    winner = 'tie';
+                    break;
+                case 'scissors':
+                    winner = 'player';
+                    break;
+                case 'paper':
+                    winner = 'computer';
+                    break;
+                default:
+                winner = null;
+            }
+        break;
+        case 'scissors':
+            switch (commov) {
+                case 'rock':
+                    winner = 'computer';
+                    break;
+                case 'scissors':
+                    winner = 'tie';
+                    break;
+                case 'paper':
+                    winner = 'player';
+                    break;
+               default:
+               winner = null;
+            }
+        break;
+            case 'paper':
+            switch (commov) {
+                case 'rock':
+                    winner = 'player';
+                    break;
+                case 'scissors':
+                    winner = 'computer';
+                    break;
+                case 'paper':
+                    winner = 'tie';
+                    break;
+                default:
+                winner = null;
+            }
+        break;
+        default:
+        winner = null;
+    }
     return winner;
 }
 
