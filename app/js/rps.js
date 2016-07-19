@@ -5,8 +5,10 @@
 
 function getInput() {
     console.log("Please choose either 'rock', 'paper', or 'scissors'.");
+    console.log("You can abbreviate 'r', 'p' and 's'.");
     return prompt();
 }
+
 function randomPlay() {
     var randomNumber = Math.random();
     if (randomNumber < 0.33) {
@@ -103,6 +105,15 @@ function playToX(x) {
         var playerMove = null;
         var computerMove = null;
         playerMove = getPlayerMove();
+        if (playerMove == 'r' || playerMove == 'R') {
+            playerMove = 'rock';
+        };
+        if (playerMove == 'p' || playerMove == 'P') {
+            playerMove = 'paper';
+        };
+        if (playerMove == 's' || playerMove == 'S') {
+            playerMove = 'scissors';
+        };
         computerMove = getComputerMove();
         var c = getWinner(playerMove, computerMove);
         if (c === 'player') {
@@ -110,7 +121,7 @@ function playToX(x) {
         }
         if (c === 'computer') {
             computerWins += 1;
-        }
+        } else console.log('There was a tie.  Play again.');
         console.log('Your choice - ' + playerMove + '.  The computer\'s choice - ' + computerMove);
         console.log('The score is: You - ' + playerWins + '  Computer - ' + computerWins);
         console.log(' ');
@@ -120,4 +131,7 @@ function playToX(x) {
     } else console.log('Computer Wins!');
     return [playerWins, computerWins];
 }
+
+playToX(3);
+
 
